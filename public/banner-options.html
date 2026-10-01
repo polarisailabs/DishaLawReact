@@ -1,0 +1,39 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Banner photo options | Disha Law Firm</title>
+<style>
+ body{font-family:Roboto,system-ui,sans-serif;background:#FFF8F6;color:#3B1519;margin:0;padding:24px}
+ h1{font-weight:500;margin:0 0 4px} p.note{margin:0 0 24px;max-width:60rem;line-height:1.5}
+ .grid{display:grid;gap:24px;grid-template-columns:repeat(auto-fill,minmax(520px,1fr))}
+ figure{margin:0;background:#fff;border:1px solid #F3D2CE;border-radius:12px;overflow:hidden}
+ .banner{position:relative;height:190px;background:#3B1519 center/cover no-repeat;color:#fff;display:flex;align-items:center}
+ .banner::before{content:"";position:absolute;inset:0;background:linear-gradient(to right,rgba(59,21,25,.9),rgba(59,21,25,.75),rgba(59,21,25,.45))}
+ .banner.plain::before{background:linear-gradient(110deg,#3B1519,#7a2a33 60%,#B83E4A)}
+ .banner div{position:relative;padding:0 28px}.banner small{opacity:.8}.banner h2{margin:6px 0 0;font-size:34px;font-weight:500}
+ figcaption{padding:12px 16px;display:flex;gap:12px;align-items:baseline}
+ b.n{background:#F08080;color:#3B1519;border-radius:999px;padding:2px 12px;font-size:18px}
+ a{color:#B83E4A}
+</style></head><body>
+<h1>Banner photo options</h1>
+<p class="note">Each preview shows how the photo looks behind a page title (with the same dark overlay the site uses). Tell me the option number you like and I'll switch every page banner to it. Images load from the Unsplash and Pexels CDNs, so you need to be online.</p>
+<div class="grid" id="g"></div>
+<script>
+const U=(id,w=1600,h=420)=>`https://images.unsplash.com/photo-${id}?auto=format&fit=crop&crop=entropy&q=70&w=${w}&h=${h}`
+const P=(id,w=1600,h=420)=>`https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=${w}&h=${h}`
+const opts=[
+ [U('1589216532372-1c2a367900d9'),'Wooden gavel on a dark background','Unsplash'],
+ [U('1589307904488-7d60ff29c975'),'Wooden gavel in a dark room','Unsplash'],
+ [P('34410146'),'Black-and-white justice statue with sword and scales','Pexels'],
+ [P('37001468'),'Bronze Lady Justice statue indoors','Pexels'],
+ [P('6077189'),'Brown and gold gavel on a wooden table','Pexels'],
+ [P('33678872'),'Gavel on a courtroom desk','Pexels'],
+ [P('7876088'),'Legal books and documents on a lawyer\'s desk','Pexels'],
+ [U('1505547828843-176834e42154'),'Stone pillars inside a hall','Unsplash'],
+ [P('3858153'),'Neoclassical law-court interior (same as home slide 1)','Pexels'],
+ [U('1589994965851-a8f479c573a9'),'Lady Justice statue with scales and sword','Unsplash'],
+ [U('1618771623063-6c3faa854a61'),'Gavel and open law book','Unsplash'],
+ [P('8112110'),'Lawyer at a laptop beside a Lady Justice statue','Pexels'],
+ [null,'No photo: plain brand gradient (dark maroon to coral)','-']
+]
+document.getElementById('g').innerHTML=opts.map(([u,c,s],i)=>`<figure><div class="banner ${u?'':'plain'}" ${u?`style="background-image:url('${u}')"`:''}><div><small>Home / About Us / Our Firm</small><h2>Our Firm</h2></div></div>
+<figcaption><b class="n">Option ${i+1}</b><span>${c} <small>(${s})</small></span></figcaption></figure>`).join('')
+</script></body></html>
