@@ -60,7 +60,7 @@ export default function Layout(){
   return <div className="min-h-screen flex flex-col">
     <header className="border-b border-line bg-white sticky top-0 z-30">
       <div className="max-w-6xl mx-auto px-4 h-[72px] flex items-center justify-between gap-4">
-        <Link to="/" aria-label="Disha Law Firm, home"><Logo hideTagMobile/></Link>
+        <Link to="/" aria-label="Disha Law Firm, home"><Logo/></Link>
         <nav aria-label="Main" className="hidden lg:flex items-center gap-0.5">{items(false)}</nav>
         <button className="lg:hidden p-2 -mr-2" aria-label="Menu" aria-expanded={open} onClick={()=>setOpen(!open)}>
           <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
