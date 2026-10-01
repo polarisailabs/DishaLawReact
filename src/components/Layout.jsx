@@ -62,12 +62,14 @@ export default function Layout(){
   return <div className="min-h-screen flex flex-col">
     <header className="border-b border-line bg-white sticky top-0 z-30">
       <div className="max-w-6xl mx-auto px-4 h-[72px] flex items-center justify-between gap-4">
-        <Link to="/" aria-label="Disha Law Firm, home"><Logo/></Link>
+        <Link to="/" aria-label="Disha Law Firm, home"><Logo hideTagMobile/></Link>
         <nav aria-label="Main" className="hidden lg:flex items-center gap-0.5">{items(false)}</nav>
         <button type="button" onClick={openForm} className="btn !py-2 !px-5 hidden lg:inline-block">Book appointment</button>
-        <button className="lg:hidden p-2 -mr-2" aria-label="Menu" aria-expanded={open} onClick={()=>setOpen(!open)}>{open?'Close':'Menu'}</button></div>
+        <button className="lg:hidden p-2 -mr-2" aria-label="Menu" aria-expanded={open} onClick={()=>setOpen(!open)}>
+          <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+            {open?<path d="M5 5l14 14M19 5L5 19"/>:<path d="M4 7h16M4 12h16M4 17h16"/>}</svg></button></div>
       {open&&<nav aria-label="Main" className="lg:hidden border-t border-line bg-white max-h-[calc(100vh-7rem)] overflow-y-auto">
-        <div className="flex flex-col p-4 items-stretch">{items(true)}<button type="button" onClick={()=>{setOpen(false);openForm()}} className="btn mt-3">Book appointment</button></div></nav>}
+        <div className="flex flex-col p-4 items-stretch">{items(true)}</div></nav>}
     </header>
     <main className="flex-1"><Outlet/></main>
     <footer className="bg-footer text-ink/90"><div className="max-w-6xl mx-auto px-4 py-5 grid md:grid-cols-[1.3fr_1.4fr_1fr] gap-x-8 gap-y-4 text-[13px] leading-snug">

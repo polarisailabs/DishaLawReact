@@ -7,8 +7,8 @@ export function Mark({size=40,className=''}){
     <path d="M16.5 21v19M16.5 21h6a9.5 9.5 0 010 19h-6" fill="none" stroke="#fff" strokeWidth="3.6" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 }
-export default function Logo({light=false,large=false}){
+export default function Logo({light=false,large=false,hideTagMobile=false}){
   return <span className="inline-flex items-center gap-2.5 md:gap-3.5"><Mark size={large?56:40}/>
     <span className="leading-none"><span className={'block font-display '+(large?'text-[28px] md:text-[34px]':'text-[22px]')+' '+(light?'text-white':'text-ink')}>Disha Law Firm</span>
-    <span className={'block mt-1 tracking-wide '+(large?'text-xs md:text-sm':'text-[11px]')+' '+(light?'text-white/80':'text-brass')}>Think Human. Argue Law.</span></span></span>
+    <span className={(hideTagMobile?'hidden lg:block ':'block ')+'mt-1 tracking-wide '+(large?'text-xs md:text-sm':'text-[11px]')+' '+(light?'text-white/80':'text-brass')}>Think Human. Argue Law.</span></span></span>
 }
