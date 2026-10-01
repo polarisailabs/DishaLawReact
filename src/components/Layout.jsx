@@ -3,7 +3,6 @@ import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
 import { SITE } from '../data/site'
 import { services } from '../data/services'
 import Logo from './Logo'
-import { useAppointment } from './AppointmentForm'
 
 // Menu: Home, Services, Media Presence, Resources, Careers, About Us (Contact Us sits inside About Us).
 const MENU=[
@@ -49,7 +48,6 @@ function Dropdown({item,pathname,mobile}){
 
 export default function Layout(){
   const [open,setOpen]=useState(false)
-  const {open:openForm}=useAppointment()
   const {pathname,hash}=useLocation()
   useEffect(()=>{
     setOpen(false)
@@ -64,7 +62,6 @@ export default function Layout(){
       <div className="max-w-6xl mx-auto px-4 h-[72px] flex items-center justify-between gap-4">
         <Link to="/" aria-label="Disha Law Firm, home"><Logo hideTagMobile/></Link>
         <nav aria-label="Main" className="hidden lg:flex items-center gap-0.5">{items(false)}</nav>
-        <button type="button" onClick={openForm} className="btn !py-2 !px-5 hidden lg:inline-block">Book appointment</button>
         <button className="lg:hidden p-2 -mr-2" aria-label="Menu" aria-expanded={open} onClick={()=>setOpen(!open)}>
           <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
             {open?<path d="M5 5l14 14M19 5L5 19"/>:<path d="M4 7h16M4 12h16M4 17h16"/>}</svg></button></div>
