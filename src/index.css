@@ -1,0 +1,35 @@
+@import "tailwindcss";
+@theme{
+ --color-coral:#F08080; --color-coral-soft:#F9C9C2; --color-blush:#FDE6E2; --color-paper:#FFF8F6;
+ --color-ink:#3B1519; --color-brass:#B83E4A; --color-line:#F3D2CE;
+ --font-display:"Roboto",system-ui,sans-serif; --font-sans:"Roboto",system-ui,sans-serif;}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-sans);color:var(--color-ink);background:var(--color-paper)}
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:500;letter-spacing:-.01em}
+.card{background:#fff;border:1px solid var(--color-line);border-radius:.75rem}
+/* Glowing buttons */
+.btn,.btn-wa,.btn-ghost,.glow{position:relative;display:inline-block;text-align:center;cursor:pointer;border:1px solid transparent;border-radius:.5rem;padding:.7rem 1.25rem;
+  transition:box-shadow .25s ease,transform .2s ease,background-color .2s ease,color .2s ease}
+.btn{background:var(--color-coral);color:var(--color-ink);--glow:240,128,128;
+  box-shadow:0 0 0 1px rgba(var(--glow),.55),0 0 14px rgba(var(--glow),.55),0 0 34px rgba(var(--glow),.3);animation:glow-pulse 3.2s ease-in-out infinite}
+.btn:hover:not(:disabled),.glow:hover{background:#f27d7d;transform:translateY(-1px);animation:none;
+  box-shadow:0 0 0 1px rgba(var(--glow),.95),0 0 22px rgba(var(--glow),.9),0 0 54px rgba(var(--glow),.55)}
+.btn:disabled{opacity:.6;cursor:not-allowed;animation:none}
+.btn-wa{background:#25D366;color:#06371b;--glow:37,211,102;
+  box-shadow:0 0 0 1px rgba(var(--glow),.55),0 0 14px rgba(var(--glow),.5),0 0 34px rgba(var(--glow),.28)}
+.btn-wa:hover{transform:translateY(-1px);box-shadow:0 0 0 1px rgba(var(--glow),.95),0 0 22px rgba(var(--glow),.85),0 0 54px rgba(var(--glow),.5)}
+.btn-ghost{border-color:var(--color-ink);color:var(--color-ink);--glow:240,128,128;box-shadow:0 0 0 0 rgba(var(--glow),0)}
+.btn-ghost:hover{background:var(--color-blush);transform:translateY(-1px);
+  box-shadow:0 0 0 1px rgba(var(--glow),.8),0 0 20px rgba(var(--glow),.7),0 0 44px rgba(var(--glow),.4)}
+.glow{--glow:240,128,128;box-shadow:0 0 0 1px rgba(var(--glow),.55),0 0 14px rgba(var(--glow),.5),0 0 30px rgba(var(--glow),.25)}
+@keyframes glow-pulse{0%,100%{box-shadow:0 0 0 1px rgba(var(--glow),.5),0 0 12px rgba(var(--glow),.45),0 0 30px rgba(var(--glow),.25)}
+  50%{box-shadow:0 0 0 1px rgba(var(--glow),.8),0 0 20px rgba(var(--glow),.75),0 0 46px rgba(var(--glow),.42)}}
+.chip{display:inline-block;background:var(--color-blush);color:var(--color-brass);font-size:.75rem;padding:.15rem .6rem;border-radius:999px}
+.sec{max-width:72rem;margin:0 auto;padding:3.5rem 1rem}
+.just{text-align:justify;text-justify:inter-word;hyphens:auto;-webkit-hyphens:auto;overflow-wrap:break-word}
+.h2{font-size:clamp(1.7rem,3vw,2.3rem);line-height:1.15}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--color-brass);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+/* Banner background taken from the attached screenshot: blue-violet on the left easing into pink on the right */
+.bg-aurora{background-color:#4f54e1;color:#fff;background-image:linear-gradient(100deg,#4f54e1 6%,#6b57d2 30%,#8d5ac2 52%,#be56ae 76%,#d653a6 94%)}
+.bg-footer{background-color:#E9E4FB;color:#3B1519;background-image:linear-gradient(100deg,#E9E4FB 6%,#FBD5E3 94%)}
