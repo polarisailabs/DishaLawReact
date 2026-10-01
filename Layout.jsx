@@ -65,7 +65,9 @@ export default function Layout(){
         <Link to="/" aria-label="Disha Law Firm, home"><Logo hideTagMobile/></Link>
         <nav aria-label="Main" className="hidden lg:flex items-center gap-0.5">{items(false)}</nav>
         <button type="button" onClick={openForm} className="btn !py-2 !px-5 hidden lg:inline-block">Book appointment</button>
-        <button className="lg:hidden p-2 -mr-2" aria-label="Menu" aria-expanded={open} onClick={()=>setOpen(!open)}>{open?'Close':'Menu'}</button></div>
+        <button className="lg:hidden p-2 -mr-2" aria-label="Menu" aria-expanded={open} onClick={()=>setOpen(!open)}>
+          <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+            {open?<path d="M5 5l14 14M19 5L5 19"/>:<path d="M4 7h16M4 12h16M4 17h16"/>}</svg></button></div>
       {open&&<nav aria-label="Main" className="lg:hidden border-t border-line bg-white max-h-[calc(100vh-7rem)] overflow-y-auto">
         <div className="flex flex-col p-4 items-stretch">{items(true)}</div></nav>}
     </header>
