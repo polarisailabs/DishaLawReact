@@ -9,6 +9,8 @@ import About from './pages/About'
 import Team from './pages/Team'
 import Founder from './pages/Founder'
 import Contact from './pages/Contact'
+import BookAppointment from './pages/BookAppointment'
+import Apply from './pages/Apply'
 import { AppointmentProvider } from './components/AppointmentForm'
 export default function App(){
   return <AppointmentProvider><Routes><Route element={<Layout/>}>
@@ -21,6 +23,8 @@ export default function App(){
     <Route path="founder" element={<Founder/>}/>
     <Route path="team" element={<Team/>}/>
     <Route path="contact" element={<Contact/>}/>
+    <Route path="book-appointment" element={<BookAppointment/>}/>
+    <Route path="careers/apply" element={<Apply/>}/>
     {/* old links keep working */}
     <Route path="judgements" element={<Navigate to="/#judgements" replace/>}/>
     <Route path="updates" element={<Navigate to="/#judgements" replace/>}/>
